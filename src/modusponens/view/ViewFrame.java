@@ -8,9 +8,6 @@ import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import org.jbox2d.common.Vec2;
-
-import modusponens.Main;
 import modusponens.controller.PonKeyListener;
 import modusponens.controller.PonMouseListener;
 import modusponens.model.Model;
