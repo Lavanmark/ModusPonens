@@ -18,8 +18,9 @@ public class Model {
 	public CircleShape cShape = new CircleShape();
 	public PolygonShape pShape = new PolygonShape();
 	public FixtureDef fDef = new FixtureDef();
-	public Body ground;
 	public Body bod;
+	
+	public PlatformGenSta floor;
 	
 	public Model(){
 		bdef.position.set(new Vec2(410,50));
@@ -37,16 +38,8 @@ public class Model {
 		bod = world.createBody(bdef);
 		bod.createFixture(fDef);
 		
-		bdef.position.set(new Vec2(400,300));
-		bdef.type = BodyType.STATIC;
-		
-		pShape.setAsBox(300, 25);
-		
-		fDef.shape = pShape;
-		fDef.density = 1.0f;
-		fDef.restitution = 0.5f;
-		ground = world.createBody(bdef);
-		ground.createFixture(fDef);
+		floor = new PlatformGenSta("floor", 600, 25, 400, 300);
+		floor.initializePlat(0.2f, 0.5f, 1.0f, world);
 		
 	}
 	float timeStep = 1.0f/19.0f;

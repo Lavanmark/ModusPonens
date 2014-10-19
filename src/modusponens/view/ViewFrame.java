@@ -24,8 +24,8 @@ public class ViewFrame extends JFrame {
 	private PonMouseListener contrlPML;
 	private Model mainModel;
 	
-	static final int CANVAS_WIDTH = 800;    // width and height of the game screen
-	static final int CANVAS_HEIGHT = 600;
+	static final int CANVAS_WIDTH = 1000;   //800 was original // width and height of the game screen
+	static final int CANVAS_HEIGHT = 600;//600
 	
 	
 	public ViewFrame(){
@@ -98,7 +98,9 @@ public class ViewFrame extends JFrame {
 		
 		
 		g2d.drawRect((int)mainModel.bod.getPosition().x, (int)mainModel.bod.getPosition().y, (int)mainModel.cShape.getRadius(), (int)mainModel.cShape.getRadius());
-		g2d.drawRect((int)mainModel.ground.getPosition().x-300, (int)mainModel.ground.getPosition().y-25, 600, 50);
+		g2d.drawRect((int)mainModel.floor.getBody().getPosition().x-mainModel.floor.getLength()/2, 
+				(int)mainModel.floor.getBody().getPosition().y-mainModel.floor.getHeight()/2, 
+				mainModel.floor.getLength(), mainModel.floor.getHeight());
 		
 		
 	}
