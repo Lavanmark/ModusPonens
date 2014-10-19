@@ -22,7 +22,7 @@ public class Model {
 	public Body bod;
 	
 	public Model(){
-		bdef.position.set(new Vec2(50,50));
+		bdef.position.set(new Vec2(410,50));
 		bdef.type = BodyType.DYNAMIC;
 		
 		
@@ -37,10 +37,10 @@ public class Model {
 		bod = world.createBody(bdef);
 		bod.createFixture(fDef);
 		
-		bdef.position.set(new Vec2(40,300));
+		bdef.position.set(new Vec2(400,300));
 		bdef.type = BodyType.STATIC;
 		
-		pShape.setAsBox(600, 50);
+		pShape.setAsBox(300, 25);
 		
 		fDef.shape = pShape;
 		fDef.density = 1.0f;

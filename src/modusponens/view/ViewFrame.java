@@ -93,12 +93,12 @@ public class ViewFrame extends JFrame {
 	         
 	      } */
 		//g2d.setBackground(Color.BLACK);
-		//g2d.setColor(Color.WHITE);
+		g2d.setColor(Color.WHITE);
 		//g2d.drawRect(100, 100, 30, 30);
 		
 		
 		g2d.drawRect((int)mainModel.bod.getPosition().x, (int)mainModel.bod.getPosition().y, (int)mainModel.cShape.getRadius(), (int)mainModel.cShape.getRadius());
-		g2d.drawRect((int)mainModel.ground.getPosition().x, (int)mainModel.ground.getPosition().y-50, 600, 50);
+		g2d.drawRect((int)mainModel.ground.getPosition().x-300, (int)mainModel.ground.getPosition().y-25, 600, 50);
 		
 		
 	}
