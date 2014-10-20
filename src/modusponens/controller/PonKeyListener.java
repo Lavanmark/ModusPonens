@@ -24,12 +24,12 @@ public class PonKeyListener implements KeyListener{
 			break;
 		case KeyEvent.VK_A:
 			//LEFT
-			mainModel.bod.applyLinearImpulse(new Vec2(-1.0f, 0.0f),mainModel.bod.getPosition());
+			mainModel.wilbert.getBody().applyLinearImpulse(new Vec2(-0.01f, 0.0f),mainModel.wilbert.getBody().getPosition());
 
 			break;
 		case KeyEvent.VK_D:
 			//RIGHT
-			mainModel.bod.applyLinearImpulse(new Vec2(1.0f, 0.0f),mainModel.bod.getPosition());
+			mainModel.wilbert.getBody().applyLinearImpulse(new Vec2(0.01f, 0.0f),mainModel.wilbert.getBody().getPosition());
 			break;
 		case KeyEvent.VK_SPACE:
 			//JUMP
@@ -67,7 +67,7 @@ public class PonKeyListener implements KeyListener{
 			break;
 		case KeyEvent.VK_SPACE:
 			//JUMP
-			mainModel.bod.applyLinearImpulse(new Vec2(0.0f,-22.0f), mainModel.bod.getPosition());
+			mainModel.wilbert.getBody().applyLinearImpulse(new Vec2(0.0f,-0.05f), mainModel.wilbert.getBody().getPosition());
 			
 			System.out.println("jump");
 			break;

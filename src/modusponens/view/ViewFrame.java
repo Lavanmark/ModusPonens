@@ -14,9 +14,6 @@ import modusponens.model.Model;
 
 public class ViewFrame extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private GameCanvas canvas;
@@ -24,8 +21,9 @@ public class ViewFrame extends JFrame {
 	private PonMouseListener contrlPML;
 	private Model mainModel;
 	
-	static final int CANVAS_WIDTH = 1000;   //800 was original // width and height of the game screen
-	static final int CANVAS_HEIGHT = 600;//600
+	// width and height of the game screen
+	static final int CANVAS_WIDTH = 1000;   //800 was original 
+	static final int CANVAS_HEIGHT = 600;	//600
 	
 	
 	public ViewFrame(){
@@ -96,10 +94,13 @@ public class ViewFrame extends JFrame {
 		g2d.setColor(Color.WHITE);
 		//g2d.drawRect(100, 100, 30, 30);
 		
-		
-		g2d.drawRect((int)mainModel.bod.getPosition().x, (int)mainModel.bod.getPosition().y, (int)mainModel.cShape.getRadius(), (int)mainModel.cShape.getRadius());
-		g2d.drawRect((int)mainModel.floor.getBody().getPosition().x-mainModel.floor.getLength()/2, 
-				(int)mainModel.floor.getBody().getPosition().y-mainModel.floor.getHeight()/2, 
+		for(int i = 0; i < mainModel.players.length; i++){
+			g2d.drawRect((int)(mainModel.players[i].getBody().getPosition().x*Model.getConv()-mainModel.players[i].getLength()/2), 
+					(int)(mainModel.players[i].getBody().getPosition().y*Model.getConv()-mainModel.players[i].getHeight()/2), 
+					mainModel.players[i].getLength(), mainModel.players[i].getHeight());
+		}
+		g2d.drawRect((int)(mainModel.floor.getBody().getPosition().x*Model.getConv()-mainModel.floor.getLength()/2), 
+				(int)(mainModel.floor.getBody().getPosition().y*Model.getConv()-mainModel.floor.getHeight()/2), 
 				mainModel.floor.getLength(), mainModel.floor.getHeight());
 		
 		
@@ -118,9 +119,6 @@ public class ViewFrame extends JFrame {
 	}
 	class GameCanvas extends JPanel {
 
-		/**
-		 * 
-		 */
 		private static final long serialVersionUID = 1L;
 		
 		public GameCanvas(){

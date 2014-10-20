@@ -1,4 +1,6 @@
-package modusponens.model;
+package modusponens.model.scenery;
+
+import modusponens.model.Model;
 
 import org.jbox2d.collision.shapes.PolygonShape;
 import org.jbox2d.common.Vec2;
@@ -15,11 +17,11 @@ public class PlatformGenSta {
 	// used to keep track of objects
 	private String name;
 	// this is full length. if you want a 50x50 square length = 50 width = 50
-	// must divide by two for jboz
+	// must divide by two for jbox
 	private int length, height;
 	//these values are the center of the object
 	private int x,y;
-	//name 
+	//name of image
 	private String imageName;
 	
 	private BodyDef bDef = new BodyDef();
@@ -48,10 +50,10 @@ public class PlatformGenSta {
 	}
 	
 	public void initializePlat(float friction, float restitution, float density, World w){
-		bDef.position.set(new Vec2(x,y));
+		bDef.position.set(new Vec2(x/Model.getConv(),y/Model.getConv()));
 		//static because GenSta
 		bDef.type = BodyType.STATIC;
-		pShape.setAsBox(length/2, height/2);
+		pShape.setAsBox(length/Model.getConv()/2, height/Model.getConv()/2);
 		fDef.shape = pShape;
 		fDef.density = density;
 		fDef.restitution = restitution;
