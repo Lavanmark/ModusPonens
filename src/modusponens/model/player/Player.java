@@ -30,6 +30,7 @@ public class Player {
 	//Direction player is facing. 0 left. 1 right.
 	protected int dir = 1;
 	
+	protected boolean grounded = false;
 	
 	
 	public Player(String playerName){
@@ -65,18 +66,33 @@ public class Player {
 		player.createFixture(fDef);
 	}
 	
+	public void moveJump(){
+		if(grounded)
+			grounded = false;
+		else
+			grounded = false;//change this for double jumping abilities. maybe add new variable
+		//set friction to zero
+		//apply force upward
+		
+	}
+	
 	public void moveLeft(){
 		//make player face the left
 		dir = 0;
-		player.applyLinearImpulse(new Vec2(-0.001f,0.0f), player.getPosition());
+		//change friction to .2
+		player.applyForce(new Vec2(-0.001f,0.0f), player.getPosition());
 		
 	}
 	public void stopMoveLeft(){
-		
+		//change friction to 100
+		player.applyForce(new Vec2(-player.m_linearVelocity.x,player.m_linearVelocity.y),player.getPosition());
 	}
 	
 	public int getDir(){
 		return dir;
+	}
+	public boolean isGrounded(){
+		return grounded;
 	}
 	public String getName(){
 		return name;

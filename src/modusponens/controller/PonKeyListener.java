@@ -14,6 +14,7 @@ public class PonKeyListener implements KeyListener{
 	public PonKeyListener(Model m){
 		mainModel = m;
 	}
+	
 	private void gameKeyPressed(int key){
 		switch(key){
 		case KeyEvent.VK_W:
