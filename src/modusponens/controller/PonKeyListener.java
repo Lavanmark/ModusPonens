@@ -24,7 +24,7 @@ public class PonKeyListener implements KeyListener{
 			break;
 		case KeyEvent.VK_A:
 			//LEFT
-			mainModel.wilbert.getBody().applyLinearImpulse(new Vec2(-0.01f, 0.0f),mainModel.wilbert.getBody().getPosition());
+			mainModel.wilbert.moveLeft();
 
 			break;
 		case KeyEvent.VK_D:
@@ -61,6 +61,7 @@ public class PonKeyListener implements KeyListener{
 			break;
 		case KeyEvent.VK_A:
 			//LEFT
+			mainModel.wilbert.stopMoveLeft();
 			break;
 		case KeyEvent.VK_D:
 			//RIGHT
