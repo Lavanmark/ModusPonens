@@ -72,7 +72,7 @@ public class Player {
 		
 	}
 	public void stopMoveLeft(){
-		player.setLinearDamping(100);
+		
 	}
 	
 	public int getDir(){
